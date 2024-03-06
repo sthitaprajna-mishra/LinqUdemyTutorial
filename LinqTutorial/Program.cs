@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using LinqTutorial.MethodSyntax;
 
@@ -72,11 +73,119 @@ namespace LinqTutorial
             //var oddNumbers = numbersWith10.Where(number => number % 2 != 0).OrderBy(number => number);
             //Console.WriteLine("Numbers: " + string.Join(",", oddNumbers));
 
+            // Section 6
+
+            //var pets = new[] {
+            //    new Pet(1, "Hannibal", PetType.Fish, 1.1f),
+            //    new Pet(2, "Anthony", PetType.Cat, 2f),
+            //    new Pet(3, "Ed", PetType.Cat, 0.7f),
+            //    new Pet(4, "Taiga", PetType.Dog, 35f),
+            //    new Pet(5, "Rex", PetType.Dog, 40f),
+            //    new Pet(6, "Lucky", PetType.Dog, 5f),
+            //    new Pet(7, "Storm", PetType.Cat, 0.9f),
+            //    new Pet(8, "Nyan", PetType.Cat, 2.2f),
+            //};
+
+            //bool isHannibalPresent = pets.Contains(new Pet(1, "Hannibal", PetType.Fish, 1.1f));
+            //Console.WriteLine(isHannibalPresent);
+
+            //bool isHannibalPresentUsingComparer = pets.Contains(new Pet(1, "Hannibal", PetType.Fish, 1.1f), new PetComparerById());
+            //Console.WriteLine(isHannibalPresentUsingComparer);
 
 
-
-            Console.ReadKey();
+            //Console.ReadKey();
         }
+
+        public static int CountFriendsOf(Friend friend, IEnumerable<Person> people)
+        {
+            int counter = 0;
+
+            foreach (Person person in people)
+            {
+                if (people.Friends.Contains(friend, new FriendComparer()))
+                {
+                    counter++;
+                }
+            }
+
+            return counter;
+        }
+
+        public class Person
+        {
+            public string Name { get; }
+            public IEnumerable<Friend> Friends { get; }
+
+            public Person(string name, IEnumerable<Friend> friends)
+            {
+                Name = name;
+                Friends = friends;
+            }
+        }
+
+        public class Friend
+        {
+            public string Name { get; }
+        }
+
+        public class FriendComparer : IEqualityComparer<Friend>
+        {
+            public bool Equals(Friend X, Friend Y)
+            {
+                return X.Name == Y.Name;
+            }
+
+            public int GetHashCode(Friend X)
+            {
+                return X.Name.Length;
+            }
+        }
+
+        #region Section 6
+
+
+        public enum PetType
+        {
+            Cat,
+            Dog,
+            Fish
+        }
+
+        public class PetComparerById : IEqualityComparer<Pet>
+        {
+            bool IEqualityComparer<Pet>.Equals(Pet x, Pet y)
+            {
+                return x.Id == y.Id;
+            }
+
+            int IEqualityComparer<Pet>.GetHashCode(Pet obj)
+            {
+                return obj.Id;
+            }
+        }
+
+        public class Pet
+        {
+            public int Id { get; }
+            public string Name { get; }
+            public PetType PetType { get; }
+            public float Weight { get; }
+
+            public Pet(int id, string name, PetType petType, float weight)
+            {
+                Id = id;
+                Name = name;
+                PetType = petType;
+                Weight = weight;
+            }
+
+            public override string ToString()
+            {
+                return $"Id: {Id}, Name: {Name}, Type: {PetType}, Weight: {Weight}";
+            }
+        }
+
+        #endregion
 
 
 
