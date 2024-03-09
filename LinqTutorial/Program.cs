@@ -93,7 +93,12 @@ namespace LinqTutorial
             //Console.WriteLine(isHannibalPresentUsingComparer);
 
 
-            //Console.ReadKey();
+            string name = "Hannibal";
+            Console.WriteLine(name.ToUpper());
+            Console.WriteLine(name.Substring(1));
+
+
+            Console.ReadKey();
         }
 
         public static int CountFriendsOf(Friend friend, IEnumerable<Person> people)
@@ -102,7 +107,7 @@ namespace LinqTutorial
 
             foreach (Person person in people)
             {
-                if (people.Friends.Contains(friend, new FriendComparer()))
+                if (person.Friends.Contains(friend, new FriendComparer()))
                 {
                     counter++;
                 }

@@ -57,8 +57,9 @@ namespace Exercises
         public static float CalculateAverageHeight_Refactored(
             List<float?> heights, float defaultIfNull)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            return heights == null || heights.Count() == 0
+            ? 0
+            : (float)heights.Average(height => height == null ? defaultIfNull : height);
         }
 
         //do not modify this method

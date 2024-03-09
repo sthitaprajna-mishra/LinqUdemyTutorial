@@ -39,8 +39,9 @@ namespace Exercises
         public static string FormatPetDataAtIndex(
             IEnumerable<Pet> pets, int index)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            return index >= 0 || index < pets.Count()
+    ? pets.ElementAt(index) != null ? pets.ElementAt(index).Name : $"Pet data is missing for index {index}"
+    : $"Pet data is missing for index {index}";
         }
 
         //Refactoring challenge
