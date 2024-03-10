@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator", "SimpleC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{48FB24FD-032E-4B67-9359-B604325DDCAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRoll", "DiceRoll\DiceRoll.csproj", "{82FCE6F7-5AAC-4852-BE8E-43B603D6AE0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{48FB24FD-032E-4B67-9359-B604325DDCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48FB24FD-032E-4B67-9359-B604325DDCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48FB24FD-032E-4B67-9359-B604325DDCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82FCE6F7-5AAC-4852-BE8E-43B603D6AE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FCE6F7-5AAC-4852-BE8E-43B603D6AE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82FCE6F7-5AAC-4852-BE8E-43B603D6AE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82FCE6F7-5AAC-4852-BE8E-43B603D6AE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
